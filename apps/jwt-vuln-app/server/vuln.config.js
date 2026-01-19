@@ -1,7 +1,7 @@
 module.exports = {
-  IDOR_ENABLED: true,
-  ADMIN_CHECK_MISSING: true,
-  JWT_IN_QUERY_ALLOWED: true,
-  WEAK_JWT_SECRET: true,
-  NO_TOKEN_EXPIRY: true
+  IDOR_ENABLED: false,
+  ADMIN_CHECK_MISSING: false,
+  JWT_IN_QUERY_ALLOWED: false,
+  WEAK_JWT_SECRET: false,
+  NO_TOKEN_EXPIRY: false
 };
