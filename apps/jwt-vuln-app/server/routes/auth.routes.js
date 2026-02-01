@@ -36,4 +36,32 @@ router.post("/login", async (req, res) => {
   res.json({ message: "Logged in", token });
 });
 
+// reset.js or auth.js
+
+app.post("/reset-password", (req, res) => {
+  const { username, newPassword } = req.body;
+
+  const user = users.find(u => u.username === username);
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  user.password = newPassword; // ❌ no token, no verification
+  res.json({ message: "Password updated" });
+});
+
+router.post("/reset-password", (req, res) => {
+  const { username, newPassword } = req.body;
+
+  const user = users.find(u => u.username === username);
+  if (!user) {
+    return res.status(404).json({ error: "User not found" });
+  }
+
+  user.password = newPassword; // ❌ no token invalidation
+
+  res.json({ message: "Password reset successful" });
+});
+
+
 module.exports = router;
